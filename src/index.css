@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Sagai Selection Admin Dashboard Design System */
+
+@layer base {
+  :root {
+    /* Main backgrounds */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 10%;
+
+    /* Card surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    /* Primary - Rose/Gold accent */
+    --primary: 350 80% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary */
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 20%;
+
+    /* Muted */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 5% 46%;
+
+    /* Accent - Gold */
+    --accent: 38 92% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info */
+    --info: 210 90% 55%;
+    --info-foreground: 0 0% 100%;
+
+    /* Border & Input */
+    --border: 240 5% 90%;
+    --input: 240 5% 90%;
+    --ring: 350 80% 55%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Dark theme */
+    --sidebar-background: 240 15% 10%;
+    --sidebar-foreground: 240 5% 85%;
+    --sidebar-primary: 350 80% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 12% 16%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 10% 18%;
+    --sidebar-ring: 350 80% 55%;
+    --sidebar-muted: 240 5% 55%;
+
+    /* Chart colors */
+    --chart-1: 350 80% 55%;
+    --chart-2: 38 92% 55%;
+    --chart-3: 142 71% 45%;
+    --chart-4: 210 90% 55%;
+    --chart-5: 270 70% 60%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(350 80% 55%) 0%, hsl(38 92% 55%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(240 15% 10%) 0%, hsl(240 12% 16%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(240 5% 98%) 100%);
+  }
+
+  .dark {
+    --background: 240 15% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 12% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 12% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 350 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 10% 18%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 240 10% 18%;
+    --muted-foreground: 240 5% 60%;
+
+    --accent: 38 92% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 20%;
+    --input: 240 10% 20%;
+    --ring: 350 80% 60%;
+
+    --sidebar-background: 240 18% 6%;
+    --sidebar-foreground: 240 5% 85%;
+    --sidebar-primary: 350 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 15% 14%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 240 12% 16%;
+    --sidebar-ring: 350 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 shadow-xl;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-dark {
+    background: var(--gradient-dark);
+  }
+
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-all duration-200;
+  }
+
+  .sidebar-item-active {
+    @apply bg-sidebar-accent text-sidebar-primary border-l-2 border-sidebar-primary;
+  }
+
+  .stat-card {
+    @apply relative overflow-hidden rounded-xl bg-card p-6 shadow-sm border border-border/50 hover-lift;
+  }
+
+  .chart-container {
+    @apply bg-card rounded-xl p-6 border border-border/50 shadow-sm;
+  }
+
+  .table-row-hover {
+    @apply hover:bg-muted/50 transition-colors duration-150;
+  }
+
+  .badge-success {
+    @apply bg-success/10 text-success border border-success/20;
+  }
+
+  .badge-warning {
+    @apply bg-warning/10 text-warning border border-warning/20;
+  }
+
+  .badge-destructive {
+    @apply bg-destructive/10 text-destructive border border-destructive/20;
+  }
+
+  .badge-info {
+    @apply bg-info/10 text-info border border-info/20;
+  }
+}
